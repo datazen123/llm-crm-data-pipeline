@@ -1,0 +1,11 @@
+contact_id,first_name,last_name,email,phone,company,title
+C-001,Jamie,Wu,jamie.wu@northgatelogistics.com,555-201-4471,northgate logistics,Ops Manager
+C-002,Jaime,Wu,Jamie.Wu@NorthgateLogistics.com,(555) 201-4471,Northgate Logistics,Operations Manager
+C-003,Priya,Natarajan,p.natarajan@brightfieldconsulting.io,555.884.2210,Brightfield Consulting,
+C-004,Marcus,Reyes,marcus.reyes@harboranalytics.com,,Harbor Analytics,Data Lead
+C-005,Marcus,Reyes,MARCUS.REYES@harboranalytics.com,555 331 0099,harbor analytics inc,Data Team Lead
+C-006,Grace,Okafor,grace.okafor@meridiansupply.com,555-772-6600,Meridian Supply Co,Procurement Specialist
+C-007,Tom,Baptiste,tbaptiste@delcorptrading.com,555-440-8871,DelCorp Trading,
+C-008,Priya,Natarajan,priya.natarajan@brightfieldconsulting.io,555-884-2210,Brightfield Consulting LLC,Senior Consultant
+C-009,Hana,Kimura,hana.kimura@orbitfreight.jp,,Orbit Freight,Regional Director
+C-010,Grace,Okafor,g.okafor@meridiansupply.com,555-772-6601,Meridian Supply,Procurement Specialist
