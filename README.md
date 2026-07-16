@@ -40,10 +40,21 @@ data/raw_contacts.csv
 ```
 
 - `llm_client.py` - thin provider adapter. Anthropic is the tested backend
-  used throughout this repo. An OpenAI-compatible adapter is included for
-  the same interface, but has **not** been run against a live OpenAI/Codex
-  key in this repo - treat it as reference code until verified.
+  used throughout this repo. OpenAI and Ask Sage adapters are included for
+  the same interface, but have **not** been run against live credentials in
+  this repo - treat them as reference code until verified.
 - `pipeline.py` - the full pipeline described above.
+
+## Deployment path
+
+This demo calls the Anthropic API directly. A production version for a
+DoD-adjacent client would more likely run through
+**[Ask Sage](https://www.asksage.ai/)** - the IL5/IL6-authorized multi-model
+gateway built for Defense Industrial Base contractors (`llm_client.py`
+includes an `AskSageClient` built from Ask Sage's
+[public API docs](https://github.com/Ask-Sage/AskSage-Open-Source-Community),
+untested pending an account) - or through a CRM platform's own embedded
+agentic layer.
 
 ## Running it
 
