@@ -112,7 +112,10 @@ def main() -> None:
         max_tokens=4096,
     )
     text = "".join(b.text for b in response.content if b.type == "text")
-    decisions = extract_json(text)
+    try:
+        decisions = extract_json(text)
+    except json.JSONDecodeError as exc:
+        raise RuntimeError(f"Claude's classification response wasn't valid JSON: {exc}\nRaw response:\n{text}") from exc
 
     tp = fp = fn = 0
     for d in decisions:

@@ -67,7 +67,13 @@ def arbitrate_cluster(client: AnthropicClient, rows: list[dict]) -> dict:
         messages=[{"role": "user", "content": prompt}],
     )
     text = "".join(b.text for b in response.content if b.type == "text")
-    return extract_json(text)
+    try:
+        return extract_json(text)
+    except json.JSONDecodeError as exc:
+        raise RuntimeError(
+            f"Claude's response for this cluster wasn't valid JSON after fence-stripping: {exc}\n"
+            f"Raw response:\n{text}"
+        ) from exc
 
 
 def main() -> None:
