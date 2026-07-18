@@ -45,6 +45,40 @@ data/raw_contacts.csv
   this repo - treat them as reference code until verified.
 - `pipeline.py` - the full pipeline described above.
 
+## Real-data benchmark
+
+`pipeline.py` above is an illustrative demo over 10 hand-written CRM rows -
+useful for showing the architecture, but "looks right" isn't a measurement.
+`benchmark.py` is a separate, additive scenario that measures the same
+underlying approach (deterministic blocking + Claude arbitration on the
+genuinely ambiguous residue) against the **Febrl record-linkage benchmark**
+(Christen, ANU) - a well-known academic dataset with real injected
+corruption and known ground truth, loaded via the actively-maintained
+[`recordlinkage`](https://recordlinkage.readthedocs.io/) Python package.
+
+Febrl is person-identity data (name/address/date-of-birth), not CRM
+business fields - it's not a replacement for the demo above, it's proof the
+matching *architecture* holds up against a real, external gold standard.
+
+**Actual measured result** (30 sampled true pairs, seed=42, full run in
+`benchmark_report.md`):
+
+| Metric | Result |
+|---|---|
+| Blocking-stage recall ceiling | 19/30 (63%) |
+| Claude precision on reachable candidates | 100.00% (0 false positives) |
+| Claude recall on reachable candidates | 84.21% |
+| Overall recall (incl. blocking misses) | 53.33% |
+
+The bottleneck is the deterministic blocking stage, not Claude's judgment -
+a true pair whose blocking key field was itself corrupted by Febrl's noise
+generator never becomes a candidate at all. That's a real, honestly-reported
+limitation of this blocking strategy, not hidden behind an aggregate number.
+
+```bash
+python benchmark.py
+```
+
 ## Deployment path
 
 This demo calls the Anthropic API directly. A production version for a
