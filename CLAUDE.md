@@ -11,8 +11,9 @@ changes.
 CRM contact data-quality pipeline: deterministic normalization (phone
 formatting, company-name cleanup) plus Claude-arbitrated judgment calls on
 duplicate/conflicting records. **Weakest fit for this specific pursuit** -
-CRM/Salesforce is not in SecureBine's stated service lines (confirmed by
-checking their site directly - see the private context repo's research);
+CRM/Salesforce is not in the target contractor's stated service lines
+(confirmed by checking their site directly - see this portfolio's private
+cross-repo context repo for the research);
 kept published and framed honestly as a "general skills demo," not
 positioned as USFK-specific.
 
@@ -50,5 +51,5 @@ pytest -q
 ```
 
 Full cross-repo strategy, founder research, and environment notes live in
-the private `datazen123/securebine-portfolio-context` repo - not
-duplicated here since this repo is public.
+this portfolio's private cross-repo context repo - not duplicated here
+since this repo is public.
